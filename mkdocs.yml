@@ -1,0 +1,84 @@
+site_name: RCCG HPC Documentation
+site_description: User documentation for RCCG HPC systems — clusters, containers, and software
+site_url: https://researchcomputingteam.github.io/rccg-public-docs/
+repo_url: https://github.com/ResearchComputingTeam/rccg-public-docs
+repo_name: rccg-public-docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+# Drafts: a page PR deletes the page's line here and adds its nav entry.
+exclude_docs: |
+  acc-cluster/partitions-limits.md
+  acc-cluster/time-memory.md
+  acc-cluster/monitoring.md
+  acc-cluster/troubleshooting.md
+  software/modules.md
+  software/libraries.md
+  software/mpi.md
+  software/conda.md
+
+plugins:
+  - search
+  - tags
+
+# Add each nav entry in the same PR as its page (strict build fails on missing files).
+nav:
+  - Home: index.md
+  - ACC Cluster:
+      - Overview: acc-cluster/index.md
+      - Getting started: acc-cluster/getting-started.md
+      - Submitting jobs: acc-cluster/submitting-jobs.md
+      - Storage: acc-cluster/storage.md
+  - On-Prem Cluster:
+      - Overview: onprem-cluster/index.md
+  - Containers:
+      - Overview: containers/index.md
+      - Building images: containers/building-images.md
+      - Running on Slurm: containers/running-on-slurm.md
+  - Software:
+      - Overview: software/index.md
+  - Tags: tags.md

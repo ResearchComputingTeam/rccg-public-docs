@@ -1,0 +1,3 @@
+# Exact strings that may appear in public docs despite matching a pattern
+# (one per line, matched as fixed substrings on the matching line). Keep this list tiny.
+rccgsupport@hbku.edu.qa
