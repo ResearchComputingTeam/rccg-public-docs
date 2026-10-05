@@ -81,4 +81,7 @@ nav:
       - Running on Slurm: containers/running-on-slurm.md
   - Software:
       - Overview: software/index.md
+      - CP2K: software/cp2k.md
+      - GROMACS: software/gromacs.md
+      - LAMMPS: software/lammps.md
   - Tags: tags.md
