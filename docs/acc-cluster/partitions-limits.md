@@ -4,7 +4,7 @@ tags: [acc, slurm, limits]
 
 # Partitions and limits
 
-*Last verified: YYYY-MM-DD*
+*Last verified: 2026-10-07*
 
 ## Hardware
 
@@ -18,9 +18,9 @@ If you do not choose a partition with `-p`, your job goes to `serial`.
 | Partition | Nodes per job | Max cores | Max time | Max memory |
 |---|---|---|---|---|
 | `serial` (default) | 1 | 16 | 168 h (7 days) | 59,136 MiB |
-| `n1` | 1 | 120 | 96 h (4 days) | |
-| `n2` | up to 2 | 240 | 96 h (4 days) | |
-| `n3` | up to 3 | 360 | 72 h (3 days) | |
+| `n1` | 1 | 120 | 96 h (4 days) | 443,596 MiB per node |
+| `n2` | up to 2 | 240 | 96 h (4 days) | 443,596 MiB per node |
+| `n3` | up to 3 | 360 | 72 h (3 days) | 443,596 MiB per node |
 
 Check the current values:
 
@@ -36,9 +36,6 @@ The `dynamic` partition is reserved for administrators.
 |---|---|
 | Cores per user, running at once | 360 |
 | Cores per project, running at once | 480 |
-| Size of one job (cores × hours) | 26,000 core-hours |
-
-Example: 240 cores for 96 h is 23,040 core-hours, which is allowed.
 
 ## Project allocation
 
