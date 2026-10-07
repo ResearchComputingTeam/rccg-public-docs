@@ -50,9 +50,6 @@ markdown_extensions:
   - toc:
       permalink: true
 
-# Drafts: a page PR deletes the page's line here and adds its nav entry.
-exclude_docs: |
-
 plugins:
   - search
   - tags
