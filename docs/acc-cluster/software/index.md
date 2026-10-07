@@ -6,7 +6,7 @@ tags:
 
 # Software — Overview
 
-_Placeholder — Spack, conda, and environment-modules usage: how to find, load, and request software across RCCG systems._
+_Placeholder — how to find, load, and request software on the ACC cluster (Spack-built modules, conda environments)._
 
 ## Environment modules
 

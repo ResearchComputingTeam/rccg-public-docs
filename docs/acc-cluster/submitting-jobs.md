@@ -72,7 +72,7 @@ module load openmpi/5.0.10-gcc-13.3.0
 srun --mpi=pmix ./hello
 ```
 
-More: [MPI](../software/mpi.md).
+More: [MPI](software/mpi.md).
 
 ## Software in job scripts
 
@@ -83,7 +83,7 @@ module load <app>
 ./<app> --input mydataset
 ```
 
-More: [Modules](../software/modules.md).
+More: [Modules](software/modules.md).
 
 ## Problems
 
