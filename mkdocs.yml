@@ -52,7 +52,6 @@ markdown_extensions:
 
 # Drafts: a page PR deletes the page's line here and adds its nav entry.
 exclude_docs: |
-  acc-cluster/monitoring.md
   software/modules.md
   software/libraries.md
   software/mpi.md
@@ -72,6 +71,7 @@ nav:
       - Submitting jobs: acc-cluster/submitting-jobs.md
       - Time and memory: acc-cluster/time-memory.md
       - Troubleshooting: acc-cluster/troubleshooting.md
+      - Monitoring: acc-cluster/monitoring.md
       - Storage: acc-cluster/storage.md
   - On-Prem Cluster:
       - Overview: onprem-cluster/index.md
