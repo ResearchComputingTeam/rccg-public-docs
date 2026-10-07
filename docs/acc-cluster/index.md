@@ -1,20 +1,34 @@
 ---
-tags:
-  - acc-cluster
-  - researcher
+tags: [acc, getting-started]
 ---
 
-# ACC Cluster — Overview
+# ACC cluster
 
-For workloads that don't need GPUs.
-- Multi-node simulations (MPI): Molecular and materials simulation (CP2K, LAMMP, GROMACS), weather and climate models (e.g. WRF)
-- High-energy physics: ROOT and Geant4 for event processing and detector simulation
-- Bioinformatics and genomics: sequence alignment, assembly, variant calling
-- Data analysis and traditional machine learning: Python, Conda and R at scale, including scikit-learn
-- Containerized and custom software: Apptainer images and user-built applications
+The ACC cluster is a CPU cluster managed with Slurm.
 
-- [Getting started](getting-started.md)
-- [Submitting jobs](submitting-jobs.md)
-- [Storage](storage.md)
+| | |
+|---|---|
+| Compute nodes | 8 |
+| Per node | 120 cores, 443,596 MiB memory |
+| GPUs | none |
 
-See also: [Containers](../containers/index.md) and [Software](../software/index.md) for topics that apply here too.
+## Access
+
+Access is currently limited to a selected list of HBKU members.
+To connect, follow the procedure sent to you by your administrator by email.
+
+## Where to start
+
+| I want to... | Page |
+|---|---|
+| Run my first job | [Getting started](getting-started.md) |
+| See partitions and limits | [Partitions and limits](partitions-limits.md) |
+| Submit batch, interactive, array or MPI jobs | [Submitting jobs](submitting-jobs.md) |
+| Understand time and memory defaults | [Time and memory](time-memory.md) |
+| Follow or cancel my jobs | [Monitoring](monitoring.md) |
+| Know where to put my files | [Storage](storage.md) |
+| Fix an error message | [Troubleshooting](troubleshooting.md) |
+| Find installed software | [Software](../software/index.md) |
+| Use containers | [Containers](../containers/index.md) |
+
+<!-- TODO: support contact -->
