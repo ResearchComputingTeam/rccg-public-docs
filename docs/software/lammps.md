@@ -26,5 +26,4 @@ srun --mpi=pmix lmp -in in.lammps
 ```
 
 Keep input files in your home directory or `/scratch`.
-Limits and other partitions: [Partitions and limits](../acc-cluster/partitions-limits.md).
 See also [Modules](modules.md) and [MPI](mpi.md).

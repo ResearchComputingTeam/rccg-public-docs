@@ -81,7 +81,7 @@ nav:
       - Libraries: software/libraries.md
       - MPI: software/mpi.md
       - Python and Conda: software/conda.md
-      - CP2K: software/cp2k.md
       - GROMACS: software/gromacs.md
       - LAMMPS: software/lammps.md
+      - CP2K: software/cp2k.md
   - Tags: tags.md

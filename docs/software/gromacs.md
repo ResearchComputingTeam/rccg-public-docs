@@ -26,5 +26,4 @@ srun --mpi=pmix gmx_mpi mdrun -deffnm md
 ```
 
 Keep input files in your home directory or `/scratch`.
-Limits and other partitions: [Partitions and limits](../acc-cluster/partitions-limits.md).
 See also [Modules](modules.md) and [MPI](mpi.md).
