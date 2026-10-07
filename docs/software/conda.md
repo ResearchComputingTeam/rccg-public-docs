@@ -24,13 +24,26 @@ The cluster has no GPUs, so `ml-cpu-conda-env` is CPU-only.
 ## Your own environment
 
 `conda/2026.03` provides Miniforge (conda and mamba, conda-forge channel only).
-You can clone a provided environment, then activate your copy:
+List the environments, then clone one into your home directory:
 
 ```bash
 module load conda/2026.03
-conda create --clone datascience-conda-env -n my-datascience
-conda activate my-datascience
+conda env list
+conda create --clone datascience-2026.09 -p ~/envs/my-datascience
+conda activate ~/envs/my-datascience
 ```
 
-<!-- TODO: where new environments are stored and quota -->
-<!-- TODO: using conda inside batch scripts -->
+Use `-p` to choose where the copy is stored. For the ML environment, clone `ml-cpu-2026.09`.
+Conda keeps downloaded packages in `~/.conda/pkgs` (your home directory).
+
+## In a batch script
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --time=01:00:00
+source /etc/profile.d/zz-lmod-hpc.sh
+module load conda/2026.03
+conda activate ~/envs/my-datascience
+python my_script.py
+```

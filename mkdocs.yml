@@ -52,10 +52,6 @@ markdown_extensions:
 
 # Drafts: a page PR deletes the page's line here and adds its nav entry.
 exclude_docs: |
-  software/modules.md
-  software/libraries.md
-  software/mpi.md
-  software/conda.md
 
 plugins:
   - search
@@ -81,6 +77,10 @@ nav:
       - Running on Slurm: containers/running-on-slurm.md
   - Software:
       - Overview: software/index.md
+      - Modules: software/modules.md
+      - Libraries: software/libraries.md
+      - MPI: software/mpi.md
+      - Python and Conda: software/conda.md
       - CP2K: software/cp2k.md
       - GROMACS: software/gromacs.md
       - LAMMPS: software/lammps.md
