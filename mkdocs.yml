@@ -52,10 +52,7 @@ markdown_extensions:
 
 # Drafts: a page PR deletes the page's line here and adds its nav entry.
 exclude_docs: |
-  acc-cluster/partitions-limits.md
-  acc-cluster/time-memory.md
   acc-cluster/monitoring.md
-  acc-cluster/troubleshooting.md
   software/modules.md
   software/libraries.md
   software/mpi.md
@@ -71,7 +68,10 @@ nav:
   - ACC Cluster:
       - Overview: acc-cluster/index.md
       - Getting started: acc-cluster/getting-started.md
+      - Partitions and limits: acc-cluster/partitions-limits.md
       - Submitting jobs: acc-cluster/submitting-jobs.md
+      - Time and memory: acc-cluster/time-memory.md
+      - Troubleshooting: acc-cluster/troubleshooting.md
       - Storage: acc-cluster/storage.md
   - On-Prem Cluster:
       - Overview: onprem-cluster/index.md

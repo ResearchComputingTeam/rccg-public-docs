@@ -4,7 +4,7 @@ tags: [acc, slurm]
 
 # Time and memory defaults
 
-*Last verified: 2026-10-05*
+*Last verified: 2026-10-07*
 
 ## Time
 
@@ -33,16 +33,23 @@ sbatch --mem=32G job.sh              # per node
 sbatch --mem-per-cpu=4G job.sh       # per core
 ```
 
-On `serial`, the total memory of a job is limited to 59,136 MiB. Examples on `serial`:
+Limits:
+
+- `serial`: the total memory of a job is limited to 59,136 MiB.
+- `n1`, `n2`, `n3`: up to the memory of a node, 443,596 MiB per node.
+
+Examples:
 
 | Request | Result |
 |---|---|
-| 1 core, `--mem-per-cpu=50G` | accepted |
-| 1 core, `--mem=100G` | rejected: `Memory required by task is not available` |
-| 16 cores, `--mem-per-cpu=27G` | rejected: `QOSMaxMemoryPerJob` |
+| `serial`, 1 core, `--mem-per-cpu=50G` | accepted |
+| `serial`, 1 core, `--mem=100G` | rejected: `Memory required by task is not available` |
+| `serial`, 16 cores, `--mem-per-cpu=3696M` | accepted (59,136 MiB in total) |
+| `serial`, 16 cores, `--mem-per-cpu=4G` | rejected: `QOSMaxMemoryPerJob` |
+| `n1`, 1 node, `--mem=400G` | accepted |
+| `n1`, 1 node, `--mem=500G` | rejected: `Requested node configuration is not available` |
 
-Need more memory? See [Troubleshooting](troubleshooting.md).
+Need more memory than `serial` allows? Use `n1`. See [Troubleshooting](troubleshooting.md).
 
-<!-- TODO: memory limit on n1, n2, n3 -->
 <!-- TODO: node start-up wait before a job runs -->
 <!-- TODO: how start-up time counts against the allocation -->
