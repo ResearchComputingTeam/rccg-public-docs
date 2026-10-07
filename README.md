@@ -2,7 +2,7 @@
 
 Public user documentation for all RCCG HPC systems, built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and published to GitHub Pages.
 
-One site, organized by system (ACC Cluster, On-Prem Cluster, ...) and by cross-cutting topic (Containers, Software, ...), with tags to filter across both.
+One site, organized by system (ACC Cluster, On-Prem Cluster, ...) and by cross-cutting topic (Containers, ...), with tags to filter across both.
 
 **This repo is 100% public. Do not add internal IPs, resource IDs, credentials, or Internal-classified material here.** A CI check blocks common patterns (IPs, GUIDs, SSH key headers) on every push, but it's a safety net, not a substitute for judgment — review before committing.
 
@@ -43,15 +43,15 @@ Open `http://localhost:8000`. Live-reloads as you edit.
 │   │   ├── index.md
 │   │   ├── getting-started.md
 │   │   ├── submitting-jobs.md
-│   │   └── storage.md
+│   │   ├── storage.md
+│   │   └── software/
+│   │       └── index.md
 │   ├── onprem-cluster/
 │   │   └── index.md
 │   ├── containers/
 │   │   ├── index.md
 │   │   ├── building-images.md
 │   │   └── running-on-slurm.md
-│   └── software/
-│       └── index.md
 └── .github/workflows/
     └── deploy.yml             # build (with leak-guard check) + deploy to Pages
 ```

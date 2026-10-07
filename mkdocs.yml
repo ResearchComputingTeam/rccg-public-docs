@@ -66,19 +66,19 @@ nav:
       - Troubleshooting: acc-cluster/troubleshooting.md
       - Monitoring: acc-cluster/monitoring.md
       - Storage: acc-cluster/storage.md
+      - Software:
+          - Overview: acc-cluster/software/index.md
+          - Modules: acc-cluster/software/modules.md
+          - Libraries: acc-cluster/software/libraries.md
+          - MPI: acc-cluster/software/mpi.md
+          - Python and Conda: acc-cluster/software/conda.md
+          - GROMACS: acc-cluster/software/gromacs.md
+          - LAMMPS: acc-cluster/software/lammps.md
+          - CP2K: acc-cluster/software/cp2k.md
   - On-Prem Cluster:
       - Overview: onprem-cluster/index.md
   - Containers:
       - Overview: containers/index.md
       - Building images: containers/building-images.md
       - Running on Slurm: containers/running-on-slurm.md
-  - Software:
-      - Overview: software/index.md
-      - Modules: software/modules.md
-      - Libraries: software/libraries.md
-      - MPI: software/mpi.md
-      - Python and Conda: software/conda.md
-      - GROMACS: software/gromacs.md
-      - LAMMPS: software/lammps.md
-      - CP2K: software/cp2k.md
   - Tags: tags.md

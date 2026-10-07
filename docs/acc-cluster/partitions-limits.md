@@ -53,4 +53,4 @@ sbatch -A <project> job.sh
 ```
 
 See [Time and memory defaults](time-memory.md) and [Troubleshooting](troubleshooting.md).
-Software and containers: [Software](../software/index.md), [Containers](../containers/index.md).
+Software and containers: [Software](software/index.md), [Containers](../containers/index.md).
