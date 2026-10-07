@@ -29,4 +29,13 @@ For example, `module load openmpi` loads `openmpi/5.0.10-gcc-13.3.0`.
 
 Pages: [Compilers and libraries](libraries.md), [Software overview](index.md).
 
-<!-- TODO: using modules inside batch scripts -->
+## In batch scripts
+
+Load the module system first, then your modules:
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+source /etc/profile.d/zz-lmod-hpc.sh
+module load openmpi/5.0.10-gcc-13.3.0
+```
