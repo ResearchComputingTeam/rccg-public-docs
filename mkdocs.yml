@@ -66,6 +66,7 @@ nav:
       - Troubleshooting: acc-cluster/troubleshooting.md
       - Monitoring: acc-cluster/monitoring.md
       - Storage: acc-cluster/storage.md
+      - Transferring files: acc-cluster/transferring-files.md
       - Software:
           - Overview: acc-cluster/software/index.md
           - Modules: acc-cluster/software/modules.md
