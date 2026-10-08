@@ -12,7 +12,9 @@ Several MPI stacks are installed.
 | `openmpi/5.0.3-gcc-13.3.0` | Open MPI 5.0.3, GCC 13.3.0 |
 | `mpi/openmpi-5.0.10` | Open MPI 5.0.10 (same release as the default above) |
 | `mpi/hpcx` | NVIDIA HPC-X 2.25.1 |
-| `mpi/impi-2021` | Intel MPI 2021.16 |
+| `mpi/2021.17` | Intel MPI 2021.17 |
+| `impi/2021.16` | Intel MPI 2021.16 |
+| `mpi/impi-2021` | Intel MPI 2021.16 (system module, alternative name) |
 | `mpi/mvapich-4.1` | MVAPICH 4.1 |
 
 `mpi/openmpi-5.0.10` and `mpi/mvapich-4.1` cannot be loaded together.
@@ -51,20 +53,65 @@ Job script (2 nodes, 4 ranks):
 
 ```bash
 #!/bin/bash
-#SBATCH --account=<project>
 #SBATCH --partition=n2
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=2
 #SBATCH --time=00:10:00
-source /etc/profile.d/zz-lmod-hpc.sh
 module load openmpi/5.0.10-gcc-13.3.0
 srun --mpi=pmix ./hello
 ```
+
+## Intel MPI over InfiniBand
+
+The compute nodes provide an InfiniBand fabric. Intel MPI 2021.17 and 2021.16
+are available as modules; check the exact names with `module avail`.
+
+For InfiniBand, set the fabric variables and launch with `mpirun`. Do not
+select `verbs` for normal benchmarks on this cluster:
+
+```bash
+export I_MPI_FABRICS=shm:ofi
+export I_MPI_OFI_PROVIDER=mlx
+export FI_PROVIDER=mlx
+```
+
+`module load` sets up `I_MPI_ROOT` and `INTELMPI_ROOT` and activates the
+module, so you do not need to set those or source the activation script
+manually.
+
+Compile with Intel MPI, then launch a two-node job with `mpirun`:
+
+```bash
+module load mpi/2021.17
+mpicc hello.c -o hello
+```
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=mpi-hello
+#SBATCH --partition=n2
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=2
+#SBATCH --time=00:10:00
+#SBATCH --output=%x-%j.log
+#SBATCH --error=%x-%j.err
+
+set -e
+export I_MPI_FABRICS=shm:ofi
+export I_MPI_OFI_PROVIDER=mlx
+export FI_PROVIDER=mlx
+
+module load mpi/2021.17
+echo "Intel MPI version: $(mpirun --version | head -n 1)"
+mpirun ./hello
+```
+
+MPI needs at least two RDMA-capable nodes. If MPI falls back to TCP or
+performs poorly, confirm the job has two RDMA-capable nodes and prints the
+fabric variables above; see [Troubleshooting](../troubleshooting.md).
 
 !!! warning
     Keep your program and files in your home directory or `/scratch`.
     `/tmp` is local to each node, so the other nodes cannot see it.
 
 Available launch methods are listed by `srun --mpi=list`.
-
-<!-- TODO: mpirun inside a job -->

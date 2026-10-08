@@ -32,4 +32,7 @@ To connect, follow the procedure sent to you by your administrator by email.
 | Find installed software | [Software](software/index.md) |
 | Use containers | [Containers](../containers/index.md) |
 
-<!-- TODO: support contact -->
+## Support
+
+Questions or access requests? Contact your administrator, or email
+`rccgsupport@hbku.edu.qa`.
