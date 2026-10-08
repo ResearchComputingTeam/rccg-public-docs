@@ -54,6 +54,9 @@ plugins:
   - search
   - tags
 
+extra_css:
+  - assets/stylesheets/custom.css
+
 # Add each nav entry in the same PR as its page (strict build fails on missing files).
 nav:
   - Home: index.md
