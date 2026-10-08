@@ -16,11 +16,9 @@ This also loads Open MPI 5.0.3 and OpenBLAS.
 
 ```bash
 #!/bin/bash
-#SBATCH --account=<project>
 #SBATCH --partition=serial
 #SBATCH --ntasks=16
 #SBATCH --time=24:00:00
-source /etc/profile.d/zz-lmod-hpc.sh
 module load gromacs/2024.1-gcc-13.3.0
 srun --mpi=pmix gmx_mpi mdrun -deffnm md
 ```

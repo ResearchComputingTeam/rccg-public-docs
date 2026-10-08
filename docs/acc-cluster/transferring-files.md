@@ -4,7 +4,8 @@ tags: [acc, storage, scp, rsync]
 
 # Transferring files
 
-How to move data between your local machine and the ACC cluster.
+How to move data between your local machine and the ACC cluster. Copy files
+through the cluster login endpoint using `rsync` or `scp`.
 
 The cluster has no backup and no restore, so keep your data safe. See
 [Storage](storage.md) for where to put your files on the cluster.
@@ -101,7 +102,9 @@ the availability of `rsync` differ slightly.
 
 - Use your home directory (`/shared/home/<username>`) or `/scratch` for cluster
   storage. See [Storage](storage.md).
-- For very large files, `rsync` with `--partial` keeps partially transferred
-  files so you can resume with the same command.
+- For large or restartable transfers, prefer `rsync -avP -e "ssh -i <key>"`:
+  `-P` keeps partially transferred files (`--partial`) and shows progress, so
+  you can resume with the same command. Omit `-i <key>` if you use the default
+  key or your key is already loaded in the agent.
 - Avoid transferring to `/tmp`: it is local to each node and not visible
   elsewhere.

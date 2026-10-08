@@ -40,9 +40,7 @@ Conda keeps downloaded packages in `~/.conda/pkgs` (your home directory).
 
 ```bash
 #!/bin/bash
-#SBATCH --account=<project>
 #SBATCH --time=01:00:00
-source /etc/profile.d/zz-lmod-hpc.sh
 module load conda/2026.03
 conda activate ~/envs/my-datascience
 python my_script.py

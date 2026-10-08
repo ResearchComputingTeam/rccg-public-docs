@@ -6,6 +6,8 @@ tags: [acc, slurm, mpi]
 
 Always give a time limit with `--time`.
 Defaults: [Time and memory](time-memory.md). Partitions: [Partitions and limits](partitions-limits.md).
+Use `sbatch` for normal job submission. Use `srun` when you need an interactive
+shell, to test commands, or to run short-lived applications.
 
 ## Batch job
 
@@ -29,7 +31,7 @@ Keep your program and files in your home directory or `/scratch`, not `/tmp`
 ## Interactive session
 
 ```bash
-srun --time=00:30:00 --pty bash
+srun --nodes=1 --ntasks=1 --time=00:30:00 --pty bash
 ```
 
 Type `exit` to end it. An interactive session ends if your connection drops,
@@ -67,7 +69,6 @@ Use `n2` (up to 2 nodes) or `n3` (up to 3 nodes) and launch with `srun --mpi=pmi
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=2
 #SBATCH --time=00:10:00
-source /etc/profile.d/zz-lmod-hpc.sh
 module load openmpi/5.0.10-gcc-13.3.0
 srun --mpi=pmix ./hello
 ```
@@ -84,6 +85,36 @@ module load <app>
 ```
 
 More: [Modules](software/modules.md).
+
+## Job-specific scratch directory
+
+Keep source code, scripts, small inputs and final results in `$HOME`. Stage large
+temporary input into a job-specific scratch directory, and copy valuable outputs back
+before the job ends:
+
+```bash
+SCRATCH_DIR="/scratch/$USER/$SLURM_JOB_ID"
+mkdir -p "$SCRATCH_DIR"
+cp -a "$HOME/my-project/input/." "$SCRATCH_DIR/"
+
+# Run the application against files in $SCRATCH_DIR.
+
+mkdir -p "$HOME/my-project/results/$SLURM_JOB_ID"
+cp -a "$SCRATCH_DIR/output/." "$HOME/my-project/results/$SLURM_JOB_ID/"
+rm -rf "$SCRATCH_DIR"
+```
+
+Use one directory per job or experiment, and include `$SLURM_JOB_ID` in log and
+scratch paths. Always copy final results to `$HOME` and clean up scratch data when it
+is no longer needed.
+
+## Best practices
+
+- Request only the nodes, tasks, memory and wall time the job needs.
+- Use `/scratch` for I/O-intensive MPI runs; keep final results in `$HOME`.
+- Record loaded modules with `module list` and MPI details with `mpirun --version`
+  in the job output, for reproducibility.
+- Never store private SSH keys, passwords or access tokens in job scripts.
 
 ## Problems
 

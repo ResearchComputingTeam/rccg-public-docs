@@ -27,15 +27,17 @@ Most application and library modules are named `<package>/<version>-<compiler>`,
 If you omit the version, Lmod loads the one marked `(D)` in `module avail`.
 For example, `module load openmpi` loads `openmpi/5.0.10-gcc-13.3.0`.
 
+Use the exact names shown by `module avail` when loading a specific version,
+especially when a module has several names (for example Intel MPI; see
+[MPI](mpi.md)).
+
 Pages: [Compilers and libraries](libraries.md), [Software overview](index.md).
 
 ## In batch scripts
 
-Load the module system first, then your modules:
+Load your modules:
 
 ```bash
 #!/bin/bash
-#SBATCH --account=<project>
-source /etc/profile.d/zz-lmod-hpc.sh
 module load openmpi/5.0.10-gcc-13.3.0
 ```

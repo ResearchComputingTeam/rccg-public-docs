@@ -46,11 +46,9 @@ When it is used up, your jobs stay pending.
 
 ## Accounts
 
-You need to belong to a project to submit jobs. If you belong to several, choose one with `-A`:
-
-```bash
-sbatch -A <project> job.sh
-```
+You need to belong to a project to submit jobs. Your Unix account is
+associated with a single Slurm account, which is used by default — you do
+not need to specify it.
 
 See [Time and memory defaults](time-memory.md) and [Troubleshooting](troubleshooting.md).
 Software and containers: [Software](software/index.md), [Containers](../containers/index.md).

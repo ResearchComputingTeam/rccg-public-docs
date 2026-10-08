@@ -26,20 +26,34 @@ scontrol show job <jobid>
 Useful fields: `JobState`, `Reason`, `RunTime`, `TimeLimit`, `Partition`, `Account`, `QOS`,
 `ReqTRES` (what you asked for) and `AllocTRES` (what you got).
 
+## Why is my job pending?
+
+A new job can stay pending (`PD`) while the cluster creates compute nodes.
+To see the reason:
+
+```bash
+squeue -j <job-id> -o "%.18i %.2t %.30R"
+```
+
+- `Resources` usually means nodes are scaling up — the job should start soon.
+- Quota, capacity or configuration messages (for example an exhausted project
+  allocation) require an administrator.
+
+`scontrol show job <jobid>` also shows the pending reason in the `Reason` field.
+
 ## Running and finished jobs
 
 ```bash
-sacct -j <jobid> --format=JobID,JobName,Partition,State,Elapsed,AllocCPUS,MaxRSS
+sacct -j <jobid> --format=JobID,JobName,Partition,State,Elapsed,AllocNodes,AllocCPUS,MaxRSS,ExitCode
 ```
 
 ```text
-JobID           JobName  Partition      State    Elapsed  AllocCPUS     MaxRSS
------------- ---------- ---------- ---------- ---------- ---------- ----------
-169                wrap     serial    RUNNING   00:00:35          1
-169.batch         batch               RUNNING   00:00:35          1
+JobID       JobName  Partition  State    Elapsed  Nodes  CPUs  MaxRSS  ExitCode
+169         wrap     serial     RUNNING  00:00:35      1     1             0
+169.batch   batch              RUNNING  00:00:35      1     1             0
 ```
 
-`MaxRSS` (peak memory) is filled in when the job ends.
+`MaxRSS` (peak memory) and `ExitCode` are filled in when the job ends.
 
 ## Cancel a job
 

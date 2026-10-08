@@ -16,11 +16,9 @@ This also loads Open MPI 5.0.3, OpenBLAS and ScaLAPACK.
 
 ```bash
 #!/bin/bash
-#SBATCH --account=<project>
 #SBATCH --partition=serial
 #SBATCH --ntasks=16
 #SBATCH --time=24:00:00
-source /etc/profile.d/zz-lmod-hpc.sh
 module load cp2k/2024.1-gcc-13.3.0
 export OMP_NUM_THREADS=1
 srun --mpi=pmix cp2k.psmp -i input.inp -o output.out
