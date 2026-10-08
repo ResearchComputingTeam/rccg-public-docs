@@ -65,40 +65,37 @@ the availability of `rsync` differ slightly.
 
 === "Mac/Linux"
 
-On macOS and Linux, `rsync` and `scp` are built in. Use forward slashes for
-paths, and use absolute paths to avoid ambiguity.
+    On macOS and Linux, `rsync` and `scp` are built in. Use forward slashes for
+    paths, and use absolute paths to avoid ambiguity.
 
-```bash
-# Upload
-rsync -avz -e ssh ~/data/dataset.bam username@acc-cluster:/shared/home/username/
+    ```bash
+    # Upload
+    rsync -avz -e ssh ~/data/dataset.bam username@acc-cluster:/shared/home/username/
 
-# Download
-rsync -avz -e ssh username@acc-cluster:/scratch/username/results/ ~/results/
-```
+    # Download
+    rsync -avz -e ssh username@acc-cluster:/scratch/username/results/ ~/results/
+    ```
 
 === "Windows"
 
-On Windows, `rsync` and `scp` are not built in. Install [Git for
-Windows](https://git-scm.com/download/win), which provides them in Git Bash, or
-use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/)
-(WSL). With WSL you get native `rsync` and `scp`.
+    On Windows, `rsync` and `scp` are not built in. Install [Git for
+    Windows](https://git-scm.com/download/win), which provides them in Git Bash, or
+    use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/)
+    (WSL). With WSL you get native `rsync` and `scp`.
 
-In PowerShell or Command Prompt, forward slashes work, but in Git Bash use
-forward slashes as well.
+    In PowerShell or Command Prompt, forward slashes work, but in Git Bash use
+    forward slashes as well.
 
-```bash
-# Git Bash or WSL
-rsync -avz -e ssh C:/Users/me/data/dataset.bam username@acc-cluster:/shared/home/username/
+    ```bash
+    # Git Bash or WSL
+    rsync -avz -e ssh C:/Users/me/data/dataset.bam username@acc-cluster:/shared/home/username/
+    ```
 
-# PowerShell (using built-in OpenSSH)
-rsync -avz -e ssh C:\Users\me\data\dataset.bam username@acc-cluster:/shared/home/username/
-```
+    For `scp` in PowerShell (OpenSSH client built into Windows 10/11):
 
-For `scp` in PowerShell (OpenSSH client built into Windows 10/11):
-
-```powershell
-scp -r C:\Users\me\data\dataset.bam username@acc-cluster:/shared/home/username/
-```
+    ```powershell
+    scp -r C:\Users\me\data\dataset.bam username@acc-cluster:/shared/home/username/
+    ```
 
 ## Tips
 
