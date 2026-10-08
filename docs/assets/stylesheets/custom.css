@@ -1,0 +1,25 @@
+/* Distinct visual treatment for section headers (nav items with sub-pages)
+ * so they are clearly distinguishable from their child pages.
+ * Applies to both light and dark palette schemes via color-mix. */
+
+/* Bold, accent-colored label for every section header. */
+.md-nav__item--section > .md-nav__label,
+.md-nav__item--section > .md-nav__link[for] {
+  font-weight: 700;
+  color: var(--md-typeset-a-color);
+}
+
+/* Tinted background + left border on the clickable section toggle. */
+.md-nav__item--section > .md-nav__link[for] {
+  background-color: color-mix(in srgb, var(--md-primary-color) 12%, transparent);
+  border-left: 3px solid var(--md-primary-color);
+  border-radius: 0.4em;
+  padding-block: 0.4em;
+  padding-inline: 0.6em;
+  margin-block: 0.2em 0;
+}
+
+/* Subtle backing for the list of child pages beneath a section header. */
+.md-nav__item--section .md-nav__list {
+  background-color: color-mix(in srgb, var(--md-default-fg-color) 2%, transparent);
+}
