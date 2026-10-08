@@ -25,6 +25,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.expand
     - navigation.top
     - navigation.instant
     - navigation.tracking
@@ -32,6 +33,11 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+
+  # Collapse sections by default; only the active section expands on load.
+  # Requires the `navigation.expand` feature flag above.
+  navigation:
+    expand: false
 
 markdown_extensions:
   - admonition
@@ -53,6 +59,10 @@ markdown_extensions:
 plugins:
   - search
   - tags
+
+# Custom stylesheet for distinct section-header styling in the nav panel.
+extra_css:
+  - assets/stylesheets/custom.css
 
 # Add each nav entry in the same PR as its page (strict build fails on missing files).
 nav:
