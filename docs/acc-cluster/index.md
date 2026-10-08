@@ -27,6 +27,7 @@ To connect, follow the procedure sent to you by your administrator by email.
 | Understand time and memory defaults | [Time and memory](time-memory.md) |
 | Follow or cancel my jobs | [Monitoring](monitoring.md) |
 | Know where to put my files | [Storage](storage.md) |
+| Transfer files to/from the cluster | [Transferring files](transferring-files.md) |
 | Fix an error message | [Troubleshooting](troubleshooting.md) |
 | Find installed software | [Software](software/index.md) |
 | Use containers | [Containers](../containers/index.md) |
