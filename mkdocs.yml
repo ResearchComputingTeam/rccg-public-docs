@@ -64,6 +64,7 @@ nav:
       - Overview: acc-cluster/index.md
       - Getting started: acc-cluster/getting-started.md
       - Partitions and limits: acc-cluster/partitions-limits.md
+      - Allocation: acc-cluster/allocation.md
       - Submitting jobs: acc-cluster/submitting-jobs.md
       - Time and memory: acc-cluster/time-memory.md
       - Troubleshooting: acc-cluster/troubleshooting.md
@@ -79,6 +80,7 @@ nav:
           - GROMACS: acc-cluster/software/gromacs.md
           - LAMMPS: acc-cluster/software/lammps.md
           - CP2K: acc-cluster/software/cp2k.md
+      - Support: acc-cluster/support.md
   - On-Prem Cluster:
       - Overview: onprem-cluster/index.md
   - Containers:
