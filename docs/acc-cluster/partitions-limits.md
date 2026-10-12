@@ -47,4 +47,4 @@ Each user belongs to one project (a Slurm account), set when you are onboarded.
 Your jobs are charged to it automatically; you do not need to give `--account`.
 
 See [Time and memory defaults](time-memory.md) and [Troubleshooting](troubleshooting.md).
-Software and containers: [Software](software/index.md), [Containers](../containers/index.md).
+Software and containers: [Software](software/index.md), [Containers](../containers/overview.md).

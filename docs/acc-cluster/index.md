@@ -31,7 +31,7 @@ To connect, follow the procedure sent to you by your administrator by email.
 | Transfer files to/from the cluster | [Transferring files](transferring-files.md) |
 | Fix an error message | [Troubleshooting](troubleshooting.md) |
 | Find installed software | [Software](software/index.md) |
-| Use containers | [Containers](../containers/index.md) |
+| Use containers | [Containers](../containers/overview.md) |
 | Contact us | [Support](support.md) |
 
 ## Support
