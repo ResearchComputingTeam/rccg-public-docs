@@ -77,4 +77,6 @@ n3           up 3-00:00:00          0/8/0/8 node[01-08]
 
 Node names are shortened here. The reserved `dynamic` partition is also listed on the cluster.
 
-<!-- TODO: how to check remaining allocation -->
+## Your project's core-hours
+
+  See [Project allocation](allocation.md).

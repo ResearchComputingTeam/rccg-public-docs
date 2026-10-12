@@ -17,8 +17,7 @@ Your job is refused immediately and nothing is queued.
 
 | Message | Cause | Fix |
 |---|---|---|
-| `Invalid account or account/partition combination specified` | Your default account does not exist, is misspelled, you are not a member, or it may not use this partition. | List your projects: `sacctmgr show assoc user=$USER format=Account`. If it persists, contact your administrator. |
-| `Memory required by task is not available` | `--mem` is above the `serial` limit of 59,136 MiB. | Lower `--mem`, or use `n1`. |
+| `Invalid account or account/partition combination specified` | You are not yet associated with a project, or you gave a wrong `--account` / `-A`. | Remove `--account` / `-A`: your project is used automatically. If the error remains, contact [support](support.md). || `Memory required by task is not available` | `--mem` is above the `serial` limit of 59,136 MiB. | Lower `--mem`, or use `n1`. |
 | `QOSMaxMemoryPerJob` | Cores × `--mem-per-cpu` is above the `serial` limit of 59,136 MiB. | Lower the number of cores or `--mem-per-cpu`, or use `n1`. |
 | `QOSMaxCpuPerJobLimit` | More than 16 cores on `serial`. | Use `n1`, `n2` or `n3`, or ask for 16 cores or fewer. |
 | `Requested node configuration is not available` | More cores (120) or memory (443,596 MiB) per node than a node has. | Lower `--ntasks-per-node` or `--mem`, or spread the job over more nodes (`n2`, `n3`). |
@@ -30,11 +29,11 @@ The two `QOS...` errors are followed by `allocation failure: Job violates accoun
 ## Job stays pending
 
 A new job can stay pending (`PD`) while the cluster creates compute nodes.
-To see the reason:
+Check the reason with `squeue --me -o "%i %T %r"`.
 
-```bash
-squeue -j <job-id> -o "%.18i %.2t %.30R"
-```
+  | Reason | Meaning | What to do |
+  |---|---|---|
+  | `QOSGrpCPUMinutesLimit` | Your project's core-hour allocation is used up. | Check it with `acc-usage` ([Project allocation](allocation.md)), then contact [support](support.md). 
 
 `Resources` means nodes are scaling up. Quota, capacity or configuration
 messages require an administrator. See [Monitoring](monitoring.md#why-is-my-job-pending).
