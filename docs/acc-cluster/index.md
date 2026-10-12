@@ -24,6 +24,7 @@ To connect, follow the procedure sent to you by your administrator by email.
 | Run my first job | [Getting started](getting-started.md) |
 | See partitions and limits | [Partitions and limits](partitions-limits.md) |
 | Submit batch, interactive, array or MPI jobs | [Submitting jobs](submitting-jobs.md) |
+| Check my project's core-hours | [Project allocation](allocation.md) |
 | Understand time and memory defaults | [Time and memory](time-memory.md) |
 | Follow or cancel my jobs | [Monitoring](monitoring.md) |
 | Know where to put my files | [Storage](storage.md) |
@@ -31,6 +32,7 @@ To connect, follow the procedure sent to you by your administrator by email.
 | Fix an error message | [Troubleshooting](troubleshooting.md) |
 | Find installed software | [Software](software/index.md) |
 | Use containers | [Containers](../containers/index.md) |
+| Contact us | [Support](support.md) |
 
 ## Support
 

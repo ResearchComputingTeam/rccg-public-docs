@@ -39,16 +39,12 @@ The `dynamic` partition is reserved for administrators.
 
 ## Project allocation
 
-Each project has a core-hour allocation that does not decay over time.
-When it is used up, your jobs stay pending.
-
-<!-- TODO: how to check remaining allocation -->
+Each project has a core-hour allocation. See [Project allocation](allocation.md).
 
 ## Accounts
 
-You need to belong to a project to submit jobs. Your Unix account is
-associated with a single Slurm account, which is used by default — you do
-not need to specify it.
+Each user belongs to one project (a Slurm account), set when you are onboarded.
+Your jobs are charged to it automatically; you do not need to give `--account`.
 
 See [Time and memory defaults](time-memory.md) and [Troubleshooting](troubleshooting.md).
 Software and containers: [Software](software/index.md), [Containers](../containers/index.md).
