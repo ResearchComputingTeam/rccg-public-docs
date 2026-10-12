@@ -84,7 +84,8 @@ nav:
   - On-Prem Cluster:
       - Overview: onprem-cluster/index.md
   - Containers:
-      - Overview: containers/index.md
+      - Overview: containers/overview.md
       - Building images: containers/building-images.md
       - Running on Slurm: containers/running-on-slurm.md
+      - Image policy: containers/image-policy.md
   - Tags: tags.md

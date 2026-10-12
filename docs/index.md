@@ -9,6 +9,6 @@ Documentation for RCCG-managed HPC systems at HBKU.
 
 ## By topic (cross-cutting, applies across systems)
 
-- **[Containers](containers/index.md)** — building and running containerized workloads
+- **[Containers](containers/overview.md)** — building and running containerized workloads
 
 Not sure where to start? Use search (top right) or browse [tags](tags.md) to filter by audience or system.
