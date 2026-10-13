@@ -79,6 +79,7 @@ nav:
           - Libraries: acc-cluster/software/libraries.md
           - MPI: acc-cluster/software/mpi.md
           - Python and Conda: acc-cluster/software/conda.md
+          - Containers: acc-cluster/software/containers.md
           - GROMACS: acc-cluster/software/gromacs.md
           - LAMMPS: acc-cluster/software/lammps.md
           - CP2K: acc-cluster/software/cp2k.md
@@ -88,6 +89,5 @@ nav:
   - Containers:
       - Overview: containers/overview.md
       - Building images: containers/building-images.md
-      - Running on Slurm: containers/running-on-slurm.md
       - Image policy: containers/image-policy.md
   - Tags: tags.md
