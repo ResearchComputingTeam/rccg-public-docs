@@ -38,28 +38,28 @@ or configuration issue and run the validation again.
 
 ## Git workflow
 
-For each documentation change:
+For each documentation change, follow this sequence:
 
-1. Start from an up-to-date `main` branch.
-2. Create a dedicated `docs/<topic>` branch.
-3. Make the documentation changes.
-4. Run the required validation commands.
-5. Review the resulting diff.
-6. **Show the proposed changes to the user and ask for explicit validation.**
-7. **If the user approves the changes, proceed to commit.**
-8. Commit with a neutral summary using the repository convention.
-9. Push the branch.
-10. Create a pull request against `main`.
-11. Enable automatic squash merge.
-12. Delete the branch after merge.
+1. Verify that the current branch is `main` and that it is up to date with
+   `origin/main`. If it is behind, run `git pull --ff-only`.
+2. Create and switch to a dedicated topic branch, normally named
+   `docs/<topic>`.
+3. Make the required source changes.
+4. Run `mkdocs build --strict` and `bash scripts/leak-guard.sh`. If either
+   command fails, diagnose and fix the relevant issue, then rerun both checks.
+5. Review the diff, stage the intended changes, and commit them on the topic
+   branch using the repository's commit-message convention.
+6. Push the topic branch to the remote.
+7. Create a pull request against `main`, enable automatic squash merge, and
+   request branch deletion after merge. The usual commands are:
 
-If the user does not approve the changes:
-- Ask for or incorporate the user's remarks.
-- Return to step 3 and modify the documentation accordingly.
-- Run the validation commands again.
-- Review and present the updated diff for approval.
+   ```bash
+   gh pr create --fill --base main
+   gh pr merge --auto --squash --delete-branch
+   ```
 
-**Do not commit, push, create a pull request, or merge until the user has explicitly approved the final changes.**
+8. Wait until the pull request is merged.
+9. Switch back to `main` and update it with `git switch main && git pull --ff-only`.
 
 Do not rewrite history.
 Do not force-push.

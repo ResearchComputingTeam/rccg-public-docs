@@ -34,6 +34,8 @@ See [Modules](modules.md) for more commands, module naming, and batch-script use
   Intel MPI over InfiniBand.
 - [GROMACS](gromacs.md), [LAMMPS](lammps.md), and [CP2K](cp2k.md): installed versions,
   module names, and Slurm job examples.
+- [Containers on the ACC cluster](containers.md): running and building Apptainer
+  images in batch jobs, image storage, and troubleshooting.
 
 Application modules load their required dependencies. For example, the GROMACS,
 LAMMPS, and CP2K modules load Open MPI 5.0.3 automatically. You do not need to load
