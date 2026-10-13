@@ -6,20 +6,22 @@ repo_name: rccg-public-docs
 
 theme:
   name: material
+  icon: 
+    logo: material/server
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: cyan
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: cyan
       toggle:
-        icon: material/weather-sunny
+        icon: material/white-balance-sunny
         name: Switch to light mode
   features:
     - navigation.tabs

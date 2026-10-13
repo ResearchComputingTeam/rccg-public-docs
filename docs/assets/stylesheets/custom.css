@@ -16,10 +16,35 @@
  * the checked/unchecked states) and re-enable pointer events on the label.
  */
 
+
 /* Re-enable clicks on the section toggle label. */
 .md-nav__item--section > .md-nav__link[for] {
   pointer-events: auto;
+  color: #0088CE; /* Accent Cyan */
+  font-weight: 700;
 }
+
+/* Color nested section titles inside collapsed drawers */
+.md-nav__item--section > .md-nav__link[for] .md-ellipsis,
+.md-nav__item--section > .md-nav .md-nav__title {
+  color: #1E1656;
+}
+
+/* Hover state on label and inner text */
+.md-nav__item--section > .md-nav__link[for]:hover,
+.md-nav__item--section > .md-nav__link[for]:hover .md-ellipsis {
+  color: #5BC6E8 !important; /* Darker cyan on hover */
+  cursor: pointer;
+}
+
+
+
+
+
+/* Re-enable clicks on the section toggle label. */
+/* .md-nav__item--section > .md-nav__link[for] {
+  pointer-events: auto;
+} */
 
 /* Let the child nav collapse/expand with its toggle checkbox instead of being
    forced open, and remove the -0.6rem indent so sub-sections align with their
@@ -33,6 +58,6 @@
 }
 
 /* Visually distinguish section headers from regular pages. */
-.md-nav__item--section > .md-nav__link[for] {
+/* .md-nav__item--section > .md-nav__link[for] {
   font-weight: 700;
-}
+} */
