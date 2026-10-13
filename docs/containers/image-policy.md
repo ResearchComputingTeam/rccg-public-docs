@@ -7,7 +7,7 @@ tags:
 
 # Container image policy
 
-This policy applies to every container image you run or build on the ACC cluster.
+This policy applies to every container image you run or build on our clusters.
 
 ## Approved sources
 
@@ -30,5 +30,5 @@ RCCG may restrict or remove images that present security, legal or operational r
 
 ## Recommended practice
 
-- **Use local images for production workloads.** Pull the image to a `.sif` file once and run that file, instead of pulling from an external registry every time a job runs. See [Running containers in jobs](running-on-slurm.md).
+- **Use local images for production workloads.** Pull the image to a `.sif` file once and run that file, instead of pulling from an external registry every time a job runs. See [Containers on the ACC cluster](../acc-cluster/software/containers.md#download-an-image-once-run-it-many-times).
 - **Keep the definition file.** Store the `.def` file next to every important research container, so that the image can be reproduced. See [Building images](building-images.md).

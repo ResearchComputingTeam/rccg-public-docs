@@ -6,10 +6,9 @@ tags:
 
 # Building images
 
-You can build your own images on the cluster without administrator rights, for example to add packages on top of a published image. Builds use the `--fakeroot` option: inside the build you are "root" and can install packages, while outside you remain a normal user.
+You can build your own images, for example to add packages on top of a published image. Builds use the `--fakeroot` option: inside the build you are "root" and can install packages, while outside you remain a normal user.
 
-!!! warning "Build in a batch job"
-    Build on a compute node through a batch job, not on the login node ([Containers overview](overview.md)).
+Run builds where your cluster allows it, see [Containers on the ACC cluster](../acc-cluster/software/containers.md#build-an-image-in-a-job).
 
 ## 1. Write a definition file
 
@@ -33,17 +32,9 @@ From: ubuntu:24.04
 - `%post` runs once during the build, as root inside the image.
 - `%runscript` runs when you use `apptainer run`.
 
-## 2. Build it in a job
+## 2. Build it
 
 ```bash
-#!/bin/bash
-#SBATCH --job-name=build-image
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=16G
-#SBATCH --time=01:00:00
-#SBATCH --output=build-image-%j.out
-
 apptainer build --fakeroot python.sif python.def
 ```
 
@@ -79,15 +70,4 @@ From: python.sif
 apptainer build --fakeroot python-scipy.sif python-scipy.def
 ```
 
-## Troubleshooting
-
-**`Could not write info to setgroups: Permission denied`**
-:   The `--fakeroot` option is not set up for your account. Contact [support](../acc-cluster/support.md).
-
-**The build is killed or runs out of memory**
-:   Request more memory with `--mem` and more time with `--time`.
-
-**`No space left on device`**
-:   Check your home quota, run `apptainer cache clean` and delete images you no longer need. If you need more space, contact [support](../acc-cluster/support.md) to request a project folder on `/scratch`.
-
-*Last verified: 2026-10-12*
+*Last verified: 2026-10-12 (ACC cluster)*
