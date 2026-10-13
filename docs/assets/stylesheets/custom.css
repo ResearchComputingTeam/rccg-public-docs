@@ -27,7 +27,7 @@
 /* Color nested section titles inside collapsed drawers */
 .md-nav__item--section > .md-nav__link[for] .md-ellipsis,
 .md-nav__item--section > .md-nav .md-nav__title {
-  color: #1E1656;
+  color: #0088CE;
 }
 
 /* Hover state on label and inner text */
