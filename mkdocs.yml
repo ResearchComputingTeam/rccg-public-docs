@@ -65,6 +65,7 @@ nav:
   - ACC Cluster:
       - Overview: acc-cluster/index.md
       - Getting started: acc-cluster/getting-started.md
+      - Using the login node: acc-cluster/login-node.md
       - Partitions and limits: acc-cluster/partitions-limits.md
       - Allocation: acc-cluster/allocation.md
       - Submitting jobs: acc-cluster/submitting-jobs.md
