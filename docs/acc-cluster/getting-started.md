@@ -59,6 +59,11 @@ Submitted batch job 123
 squeue --me
 ```
 
+For a job that needs a dynamic compute node, the `ST` column may show `CF`
+(configuring) for about five minutes or longer. This is normal while the cloud
+provider allocates and starts the node. The job should proceed when it is ready. See
+[Monitoring](monitoring.md) for more ways to check job state.
+
 ## 5. Read the output
 
 The output file is named `<job-name>-<jobid>.out`:
@@ -70,6 +75,8 @@ cat first-123.out
 Do not run compute-heavy applications on the login node outside a Slurm
 allocation — submit a job or start an
 [interactive session](submitting-jobs.md#interactive-session) instead.
+See [Using the login node](login-node.md) for examples of work to run on a
+compute node and why the login node should stay available to all users.
 
 ## Next
 
