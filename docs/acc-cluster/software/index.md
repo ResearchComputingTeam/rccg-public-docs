@@ -36,6 +36,7 @@ See [Modules](modules.md) for more commands, module naming, and batch-script use
   module names, and Slurm job examples.
 - [Containers on the ACC cluster](containers.md): running and building Apptainer
   images in batch jobs, image storage, and troubleshooting.
+- For running weather simulations with WRF and preparing their input data with WPS on the ACC cluster, see the [WRF/WPS guide](wrf.md).
 
 Application modules load their required dependencies. For example, the GROMACS,
 LAMMPS, and CP2K modules load Open MPI 5.0.3 automatically. You do not need to load
