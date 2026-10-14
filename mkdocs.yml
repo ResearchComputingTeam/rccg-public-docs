@@ -84,6 +84,7 @@ nav:
           - GROMACS: acc-cluster/software/gromacs.md
           - LAMMPS: acc-cluster/software/lammps.md
           - CP2K: acc-cluster/software/cp2k.md
+          - WRF: acc-cluster/software/wrf.md
       - Support: acc-cluster/support.md
   - On-Prem Cluster:
       - Overview: onprem-cluster/index.md
