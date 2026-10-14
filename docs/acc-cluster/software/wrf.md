@@ -1,6 +1,6 @@
 # Running WRF / WPS on the ACC cluster
 
-This page explains how to launch MPI-based WRF and WPS jobs on the ACC cluster (Azure CycleCloud, Slurm).
+This page explains how to launch MPI-based WRF and WPS jobs on the ACC cluster.
 
 ## Software
 
@@ -33,10 +33,6 @@ Key directories:
 | `n2` | Jobs that need 2 nodes. Add `--partition=n2`. |
 
 Your default Slurm account is applied automatically, so `--account` is not needed.
-
-## Job submission
-
-Submit with `sbatch`. If no node is running, the job first shows `CF` (Configuring) while Azure provisions a node. This can take several minutes. The job then moves to `R` (Running) once the node is ready. Idle nodes are shut down after 5 minutes, so a job submitted after a quiet period waits for provisioning.
 
 ## Example Slurm script
 
