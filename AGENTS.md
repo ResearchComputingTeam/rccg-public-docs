@@ -48,24 +48,27 @@ For each documentation change, follow this exact sequence:
    ```bash
    git switch -c docs/<feature>
    ```
-3. Make the required source changes.
-4. Run validation checks. If either command fails, diagnose and fix the issue before proceeding:
+3. Make the required source changes and ask me if I am ok with your changes. 
+
+4. I will inspect the changes via VSCode git plugin so you don't need to provide me the diff. If I agree with your changes, go ahead to 5. if not, go back to 3. and apply my remarks
+
+5. Run validation checks. If either command fails, diagnose and fix the issue before proceeding:
    ```bash
    mkdocs build --strict && bash scripts/leak-guard.sh
    ```
-5. Stage all changes and commit them with a descriptive message:
+6. Stage all changes and commit them with a descriptive message:
    ```bash
    git add -A && git commit -m "<relevant commit message>"
    ```
-6. Push the topic branch to the remote:
+7. Push the topic branch to the remote:
    ```bash
    git push -u origin HEAD
    ```
-7. Create the pull request and configure automatic squash merging and branch deletion:
+8. Create the pull request and configure automatic squash merging and branch deletion:
    ```bash
    gh pr create --fill --base main && gh pr merge --auto --squash --delete-branch
    ```
-8. Wait for the automatic merge to complete by polling the PR state:
+9. Wait for the automatic merge to complete by polling the PR state:
    ```bash
    for i in {1..90}
    do
@@ -74,7 +77,7 @@ For each documentation change, follow this exact sequence:
    done
    gh pr view --json state -q .state
    ```
-9. Switch back to `main` and pull the latest changes:
+10. Switch back to `main` and pull the latest changes:
    ```bash
    git switch main && git pull --ff-only
    ```
