@@ -15,16 +15,16 @@ tags: [acc, storage]
 |---|---|---|---|---|
 | `/shared/home/<username>` (`$HOME`) | Persistent shared network storage, visible on all nodes | 1 TB | 40 GB per user | No backup. Survives jobs and node deallocation. |
 | `/scratch` | Persistent shared Lustre filesystem for high-throughput, low-latency job data, visible on all nodes | 4 TB | 350 GB per group | No backup. Not a substitute for `$HOME`. No automatic cleanup at the moment. |
-| `/nvme` | Local NVMe disk on each compute node | 2.1 TB | none | Lost when the node is deallocated. Copy what you need out before your job ends. |
+| `/tmp` (backed by `/nvme/tmp`) | Fast local NVMe scratch on each compute node | about 1.8 TiB available on the node checked | none | Shared with jobs on the same node; local to one node and ephemeral. Copy results out before the job ends or node deallocation. |
 
 ## Where to put things
 
 - Keep your programs, input files and job scripts in your home directory or in `/scratch`.
   They are visible from every node.
 - Use `/scratch` specifically for large temporary input, intermediate files or files that are shared among your project group.
-- Use `/nvme` for workloads that require extremely high I/O performance, such as temporary scratch files, checkpoints, or intermediate results. Storage under `/nvme` is local to the compute node running your job and is not shared with other nodes. Data stored there is temporary and WILL BE LOST when the node is deallocated. Create a job-specific directory in `/nvme`, stage input files from `$HOME` or `/scratch` at the start of the job, and copy any results that you want to keep back to `$HOME` or `/scratch` before the job ends.
-- `/tmp` is local to each node. A program in `/tmp` cannot be found by the other nodes
-  (`execve(): ... No such file or directory`, see [Troubleshooting](troubleshooting.md)).
+- Use `/tmp` for temporary high-I/O work, checkpoints, and intermediate results. On the compute nodes, `/tmp` is a bind mount of `/nvme/tmp` on local NVMe. Both paths are accessible to regular users; `/tmp` is the recommended path. Create a unique job directory with `mktemp -d`, stage inputs from `$HOME` or `/scratch`, run the application there, then copy results you want to keep back to `$HOME` or `/scratch` before the job ends.
+- `/tmp` is shared with other users and jobs on the same node; Slurm does not make it private to a job or automatically clean up its files. Its `1777` sticky-bit permissions prevent other users from deleting or renaming your directory entry, but use restrictive permissions for files and directories. It has no quota, so large writes can consume space needed by other jobs.
+- Each node has its own `/tmp`; files are not shared between nodes. Data is ephemeral and will be lost when the node is deallocated or rebuilt. For multi-node jobs, stage files separately on each node. Keep the program's `/tmp` path local to the node; another node cannot see it (see [Troubleshooting](troubleshooting.md)).
 
 ## Check your quota usage
 
