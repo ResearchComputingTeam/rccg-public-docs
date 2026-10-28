@@ -38,32 +38,51 @@ or configuration issue and run the validation again.
 
 ## Git workflow
 
-For each documentation change, follow this sequence:
+For each documentation change, follow this exact sequence:
 
-1. Verify that the current branch is `main` and that it is up to date with
-   `origin/main`. If it is behind, run `git pull --ff-only`.
-2. Create and switch to a dedicated topic branch, normally named
-   `docs/<topic>`.
-3. Make the required source changes.
-4. Run `mkdocs build --strict` and `bash scripts/leak-guard.sh`. If either
-   command fails, diagnose and fix the relevant issue, then rerun both checks.
-5. Review the diff, stage the intended changes, and commit them on the topic
-   branch using the repository's commit-message convention.
-6. Push the topic branch to the remote.
-7. Create a pull request against `main`, enable automatic squash merge, and
-   request branch deletion after merge. The usual commands are:
-
+1. Ensure `main` is up to date:
    ```bash
-   gh pr create --fill --base main
-   gh pr merge --auto --squash --delete-branch
+   git switch main && git pull --ff-only
    ```
-
-8. Wait until the pull request is merged.
-9. Switch back to `main` and update it with `git switch main && git pull --ff-only`.
+2. Create and switch to a dedicated topic branch (`docs/<feature>`):
+   ```bash
+   git switch -c docs/<feature>
+   ```
+3. Make the required source changes.
+4. Run validation checks. If either command fails, diagnose and fix the issue before proceeding:
+   ```bash
+   mkdocs build --strict && bash scripts/leak-guard.sh
+   ```
+5. Stage all changes and commit them with a descriptive message:
+   ```bash
+   git add -A && git commit -m "<relevant commit message>"
+   ```
+6. Push the topic branch to the remote:
+   ```bash
+   git push -u origin HEAD
+   ```
+7. Create the pull request and configure automatic squash merging and branch deletion:
+   ```bash
+   gh pr create --fill --base main && gh pr merge --auto --squash --delete-branch
+   ```
+8. Wait for the automatic merge to complete by polling the PR state:
+   ```bash
+   for i in {1..90}
+   do
+           [ "$(gh pr view --json state -q .state)" = "MERGED" ] && break
+           sleep 10
+   done
+   gh pr view --json state -q .state
+   ```
+9. Switch back to `main` and pull the latest changes:
+   ```bash
+   git switch main && git pull --ff-only
+   ```
 
 Do not rewrite history.
 Do not force-push.
 Do not merge directly into `main`.
+
 
 ## Scope
 
