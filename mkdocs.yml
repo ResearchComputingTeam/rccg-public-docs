@@ -80,6 +80,8 @@ nav:
           - Libraries: acc-cluster/software/libraries.md
           - MPI: acc-cluster/software/mpi.md
           - Python and Conda: acc-cluster/software/conda.md
+          - R: acc-cluster/software/r.md
+          - Genomics and bioinformatics tools: acc-cluster/software/bioinformatics.md
           - Containers: acc-cluster/software/containers.md
           - GROMACS: acc-cluster/software/gromacs.md
           - LAMMPS: acc-cluster/software/lammps.md
