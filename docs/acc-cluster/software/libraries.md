@@ -9,6 +9,7 @@ Spack-built libraries, all compiled with GCC 13.3.0 (module suffix `-gcc-13.3.0`
 | Module | Provides |
 |---|---|
 | `openblas/0.3.26-gcc-13.3.0` | BLAS and LAPACK |
+| `htslib` | HTSlib C library and the `bgzip` and `tabix` tools |
 | `netlib-scalapack/2.2.0-gcc-13.3.0` | ScaLAPACK |
 | `hdf5/1.14.3-gcc-13.3.0` | HDF5 |
 | `netcdf-c/4.9.2-gcc-13.3.0` | NetCDF (C) |

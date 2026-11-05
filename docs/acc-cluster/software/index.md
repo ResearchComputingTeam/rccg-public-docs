@@ -28,6 +28,9 @@ See [Modules](modules.md) for more commands, module naming, and batch-script use
 
 - [Python and Conda](conda.md): ready-made Python 3.12 environments and how to make
   a personal copy.
+- [R](r.md): run R analyses and install personal R packages in batch jobs.
+- [Genomics and bioinformatics tools](bioinformatics.md): use the centrally available
+  population-genetics and variant-analysis tools.
 - [Compilers and libraries](libraries.md): available scientific libraries, including
   OpenBLAS, ScaLAPACK, HDF5, and NetCDF.
 - [MPI](mpi.md): available MPI stacks, compiling and launching MPI programs, and
@@ -52,3 +55,14 @@ directory. See [Python and Conda](conda.md) for commands and package details.
 Keep input files in your home directory or `/scratch` when running jobs. For help
 with submitting jobs and cluster resources, see [Submitting jobs](../submitting-jobs.md)
 and [Storage](../storage.md).
+
+## Population genetics and variant analysis
+
+| Software | Version | Module | Purpose | Guide |
+|---|---:|---|---|---|
+| R | 4.4.0 | `r` | Statistical computing and graphics | [R](r.md) |
+| PLINK | 1.9 (`PLINK v1.90b6.27`) | `plink` | Population-genetics analysis and genotype data conversion | [Genomics and bioinformatics tools](bioinformatics.md) |
+| SAMtools | 1.19.2 | `samtools` | Read, sort, and index sequence alignment files | [Genomics and bioinformatics tools](bioinformatics.md) |
+| BCFtools | 1.19 | `bcftools` | Inspect, filter, and query variant call files | [Genomics and bioinformatics tools](bioinformatics.md) |
+| HTSlib | 1.19.1 | `htslib` | Read and write high-throughput sequencing formats; includes `bgzip` and `tabix` | [Genomics and bioinformatics tools](bioinformatics.md) |
+| VCFtools | 0.1.16 | `vcftools` | Filter and summarize VCF files | [Genomics and bioinformatics tools](bioinformatics.md) |
